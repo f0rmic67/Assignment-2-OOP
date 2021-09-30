@@ -24,8 +24,3 @@ List::printList()
 {
 	
 }
-
-List::quit()
-{
-	
-}
