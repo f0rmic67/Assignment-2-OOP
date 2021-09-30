@@ -30,7 +30,7 @@ int main() {
    			l1.remove();
    			
    		else if(choice == 3)
-   			l1.display();
+   			l1.printlist();
    			
    		else if(choice == 4)
    			cout << "\nExiting..." << endl;
