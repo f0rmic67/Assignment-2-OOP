@@ -1,5 +1,5 @@
-#ifndef list_H
-#define list_H
+#ifndef set_H
+#define set_H
 using namespace std;
 class list
 {
