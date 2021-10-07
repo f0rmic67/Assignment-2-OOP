@@ -20,7 +20,9 @@ class list
 
   private:
    int size;  //This will be the capacity of the array
-   int *point; //This pointer will be turned into our array by doing point = new int[size]; in the cpp file
+	
+   protected: 
+    int *point;
 };
 
 #endif
