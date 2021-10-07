@@ -27,7 +27,7 @@ void list::insert(const int value){
 		for(int i = 0; i <size;i++){
 			if(point[i] == 0){
 				point[i] = value;//sets the user input to the first array slot that is at zero.
-				i = 1000;
+				break;
 			}
 		}
 }
