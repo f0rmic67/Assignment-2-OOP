@@ -6,9 +6,10 @@ using namespace std;
 
 int main() {
 	
-	List l1;
+	list l1;
 	
 	int choice;
+	int num1 ,removeNum;
 	
 	do
 	{
@@ -24,13 +25,25 @@ int main() {
    		}
    		
    		if(choice == 1)
-   			l1.insert();
+   			cout<<"Please input the number you would like to add. Please do not go over 3 digits."<< endl;
+   			while(!(cin >> num1) || cin.peek() != '\n' || num1 < 1 || num1 > 1000){
+   				cout << "\nPlease enter an integer between one and 999: ";
+    			cin.clear();
+    			cin.ignore(30000, '\n');  
+			   }
+   			l1.insert(num1); //calls insert function
    			
    		else if(choice == 2)
-   			l1.remove();
+   			cout<<"\nPlease enter the number you would like to remove: ";
+   			while(!(cin >> removeNum) || cin.peek() != '\n' || removeNum < 1 || removeNum > 1000){
+   				cout << "\nPlease enter an integer between one and 999: ";
+    			cin.clear();
+    			cin.ignore(30000, '\n');  
+			   }
+			   l1.remove(removeNum);
    			
    		else if(choice == 3)
-   			l1.printlist();
+   			l1.display();
    			
    		else if(choice == 4)
    			cout << "\nExiting..." << endl;
@@ -39,7 +52,7 @@ int main() {
 	}
 	while(choice != 4);
 	
-	l1.~List();
+	
 	
 	return 0;
 }
