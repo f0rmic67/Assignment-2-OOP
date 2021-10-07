@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cstdlib>
-#include "set.h"
+#include "list.h"
 
 using namespace std;
 
@@ -24,7 +24,8 @@ int main() {
     		cin.ignore(30000, '\n');            
    		}
    		
-   		if(choice == 1)
+   		if(choice == 1){
+		   
    			cout<<"Please input the number you would like to add. Please do not go over 3 digits."<< endl;
    			while(!(cin >> num1) || cin.peek() != '\n' || num1 < 1 || num1 > 1000){
    				cout << "\nPlease enter an integer between one and 999: ";
@@ -32,8 +33,10 @@ int main() {
     			cin.ignore(30000, '\n');  
 			   }
    			l1.insert(num1); //calls insert function
-   			
-   		else if(choice == 2)
+   		}
+   		
+   		else if(choice == 2){
+		   
    			cout<<"\nPlease enter the number you would like to remove: ";
    			while(!(cin >> removeNum) || cin.peek() != '\n' || removeNum < 1 || removeNum > 1000){
    				cout << "\nPlease enter an integer between one and 999: ";
@@ -41,15 +44,18 @@ int main() {
     			cin.ignore(30000, '\n');  
 			   }
 			   l1.remove(removeNum);
-   			
-   		else if(choice == 3)
+   	}
+   		else if(choice == 3){
+		   
    			l1.display();
-   			
-   		else if(choice == 4)
+   		}
+   		else if(choice == 4){
+		   
    			cout << "\nExiting..." << endl;
    			
    		cout << endl;
 	}
+}
 	while(choice != 4);
 	
 	
