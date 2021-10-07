@@ -5,7 +5,7 @@
 
 using namespace std;
 
-List::list(){
+list::list(){
 	size = 2;
 	point = new int[size];//makes point into an array where size is the maximum capacity
 	for(int i = 0; i <size;i++){ // makes every value in point[] = 0
@@ -32,7 +32,6 @@ void list::insert(const int value){
 		}
 }
 	
-}
 
 void list::remove(const int value){
 		for(int i = 0; i <size;i++){
