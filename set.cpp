@@ -102,7 +102,9 @@ void List::display() const
 	for(int count = 0; count < size; count++)
 	{
 		if(point[count] != 0)
+		{
 			cout << point[count] << "\n";  //displays each index value in a new line
+		}
 	}
 	
 	cout << endl;
