@@ -1,50 +1,109 @@
 #include <iostream>
-#include <string>
 #include <cstdlib>
-#include "list.h"
+#include "set.h"
 
 using namespace std;
 
-list::list(){
+List::List()
+{
 	size = 2;
-	point = new int[size];//makes point into an array where size is the maximum capacity
-	for(int i = 0; i <size;i++){ // makes every value in point[] = 0
-		point[i] = 0;
+	
+	point = new int[size](); //dynamically allocates point array, with size as capacity and all indexes set to zero
+}
+
+List::~List()
+{
+	delete[] point; //destructor, deletes dynamic array point to prevent memory leaks
+}
+
+int List::getsize() const  //size get function
+{
+	return size;
+}
+
+void List::setsize(const int s)  //size set function
+{
+	if(s > 0)
+		size = s;
+}
+
+void List::insert(const int ins)
+{
+	if(point[size - 1] != 0)
+	{
+		addtwo();  //adds two new indexes to point array that are set to zero when the array is full 
+	}
+		
+		
+	if(ins != 0)
+	{
+		for(int count = 0; count < size; count++) //looks for the first occurrence of zero and inserts the user-defined int to that index
+		{
+			if(point[count] == 0)
+			{
+				point[count] = ins;  
+				break;        //ends the for loop after inserting the number
+			}
+		}
 	}
 }
 
-void list::insert(const int value){
-		
-		if(point[size-1] != 0){
-			cout<< "\nADDING SPACE\n";//adds two slots when array is filled
-			size = size + 2;
-		}
-		for(int i = 0; i <size;i++){ 
-		if(point[i] > 1000){ //makes the newly added slots in the array go to zero
-			point[i] = 0;
-		}
-		}
-		for(int i = 0; i <size;i++){
-			if(point[i] == 0){
-				point[i] = value;//sets the user input to the first array slot that is at zero.
+void List::remove(const int rem)
+{
+	if(rem != 0)
+	{
+		for(int count = 0; count < size; count++) //searches for index with value to be removed
+		{
+			if(point[count] == rem)
+			{
+				point[count] = 0;  //sets index with value to be removed as zero
+			
+				for(int index = count; index < size - 1; index++)	//uses swap function to shift all numbers after the removed value
+				{                                                   //over so zero is now at the end of the array
+					swap(point[index], point[index + 1]); 
+				}
+			
 				break;
 			}
-		}
-}
-	
-
-void list::remove(const int value){
-		for(int i = 0; i <size;i++){
-			if(point[i] == value){
 		
-			}
+			else if(count == size - 1)
+				cout << "\nThe number you entered is not in this list." << endl;
 		}
+	}
 }
 
-void list::display(void) const{
-	cout <<"printing...\n";
-	for(int i = 0; i <size;i++){ // prints every value of array
-		cout << point[i];
-		cout << "\n";
+void List::addtwo()
+{
+	int* temp = new int[size + 2]();    //creates temporary array with +2 indexes
+	
+	for(int count = 0; count < size; count++)
+	{
+		temp[count] = point[count];   //copies point array into temporary
 	}
+
+	size = size + 2;  //sets new size for point array
+	
+	point = temp;   //inserts values back into newly allocated point array, eliminates any possible junk data
+	
+	delete[] temp;
+}
+
+void List::swap(int& num1, int& num2)
+{
+	int temp;
+	
+	temp = num1;    //swaps values of adjascent array indexes
+	num1 = num2;
+	num2 = temp;
+}
+
+void List::display() const
+{
+	for(int count = 0; count < size; count++)
+	{
+		if(point[count] != 0)
+			cout << point[count] << "\n";  //displays each index value in a new line
+	}
+	
+	cout << endl;
 }
