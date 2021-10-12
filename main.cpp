@@ -1,20 +1,20 @@
 #include <iostream>
 #include <cstdlib>
-#include "list.h"
+#include "set.h"
 
 using namespace std;
 
-int main() {
+int main() 
+{
 	
-	list l1;
+	List l1;
 	
-	int choice;
-	int num1 ,removeNum;
+	int choice, insertnum ,removeNum;
 	
 	do
 	{
 		cout << "Please enter the number of your desired action.\n" << endl;
-		cout << "1. Insert numbers to list\n2. Remove numbers from list\n3. Print list\n4. Quit" << endl;
+		cout << "1. Insert nonzero number to list\n2. Remove first occurrence of number from list\n3. Print list\n4. Quit" << endl;
 		cout << "Number: ";
 	
 		while(!(cin >> choice) || cin.peek() != '\n' || choice < 1 || choice > 4)
@@ -24,41 +24,53 @@ int main() {
     		cin.ignore(30000, '\n');            
    		}
    		
-   		if(choice == 1){
+   		if(choice == 1)
+		{
 		   
-   			cout<<"Please input the number you would like to add. Please do not go over 3 digits."<< endl;
-   			while(!(cin >> num1) || cin.peek() != '\n' || num1 < 1 || num1 > 1000){
-   				cout << "\nPlease enter an integer between one and 999: ";
+   			cout<<"\nPlease input the nonzero number you would like to add: ";
+   			
+   			while(!(cin >> insertnum) || cin.peek() != '\n' || insertnum == 0)
+			{
+   				cout << "\nPlease enter an integer that is not zero: ";
     			cin.clear();
     			cin.ignore(30000, '\n');  
-			   }
-   			l1.insert(num1); //calls insert function
+		    }
+		   
+   			l1.insert(insertnum); 
+   			
+   			cout << endl;
    		}
    		
-   		else if(choice == 2){
+   		else if(choice == 2)
+		{
 		   
-   			cout<<"\nPlease enter the number you would like to remove: ";
-   			while(!(cin >> removeNum) || cin.peek() != '\n' || removeNum < 1 || removeNum > 1000){
-   				cout << "\nPlease enter an integer between one and 999: ";
+   			cout<<"\nPlease enter the nonzero number you would like to remove: ";
+   			
+   			while(!(cin >> removeNum) || cin.peek() != '\n' || removeNum == 0)
+			{
+   				cout << "\nPlease enter an integer that is not zero: ";
     			cin.clear();
     			cin.ignore(30000, '\n');  
-			   }
-			   l1.remove(removeNum);
-   	}
-   		else if(choice == 3){
-		   
-   			l1.display();
+			}
+			
+			l1.remove(removeNum); 
+			
+			cout << endl;
    		}
-   		else if(choice == 4){
-		   
-   			cout << "\nExiting..." << endl;
-   			
-   		cout << endl;
-	}
-}
-	while(choice != 4);
-	
-	
+   		
+   		else if(choice == 3)
+		{
+			cout << endl;
+			
+   			l1.display(); 
+   		}
+   		
+   		else if(choice == 4)
+		{
+   			cout << "\nExiting..." << endl << endl;
+		}
+		
+	}while(choice != 4);
 	
 	return 0;
 }
