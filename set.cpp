@@ -81,7 +81,7 @@ void List::addtwo()
 		temp[count] = point[count];   //copies point array into temporary
 	}
 
-	size = size + 2;  //sets new size for point array
+	size += 2;  //sets new size for point array
 	
 	point = temp;   //inserts values back into newly allocated point array, eliminates any possible junk data
 	
