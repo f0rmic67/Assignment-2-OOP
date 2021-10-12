@@ -1,28 +1,85 @@
-#ifndef set_H
-#define set_H
-using namespace std;
-class list
-{
-  public:
-    // CONSTRUCTOR
-    list();
-	
-	//DESTRUCTOR GOES HERE
-	
-    // MODIFICATION MEMBER FUNCTIONS
-    
-    void insert(const int);//takes user input and inserts it into the array.
-	void remove(const int);
-    // CONSTANT MEMBER FUNCTIONS
-    void display(void) const;
-    
-   
+/*
 
-  private:
-   int size;  //This will be the capacity of the array
+CLASS PROVIDED: List
+
+CONSTRUCTOR and DESTRUCTOR for the List class:
+  List()
+    Description:    Constructor will initialize List objects
+    Preconditions:  None
+    Postcondition:  Point dynamic array is created with size of 2
+    
+  ~List()
+    Description:    Destructor will delete the point dynamic array
+    Preconditions:  none
+    Postcondition:  Point array is deleted
+    
+MODIFICATION MEMBER FUNCTIONS for List class
+  void setsize(const int)
+    Description:    sets the value of size
+    Preconditions:  value is greater than zero
+    Postcondition:  size of List dynamic array is set
+  
+  void insert(const int)
+    Description:    inserts user input value to the dynamic array
+    Preconditions:  value is not zero
+    Postcondition:  value is added at the end of the array
+  
+  void remove(const int)
+    Description:    first instance of user input value is removed from the array
+    Preconditions:  value is not zero
+    Postcondition:  value is removed from the array
+  
+  void addtwo()
+    Description:    adds two indexes with value of zero to the end of the dynamic array
+    Preconditions:  none
+    Postcondition:  Array has two more index values
+  
+  void swap(int&, int&)
+    Description:    swaps two index values in the dynamic array
+    Preconditions:  parameters are valid index values
+    Postcondition:  Index values are swapped
+    
+CONSTANT MEMBER FUNCTIONS for the List class
+  int getsize() const
+    Description:    returns the value of size
+    Preconditions:  none
+    Postcondition:  value of size is returned
+  
+  void display() const
+    Description:    displays all dynamic array stored values other than zero
+    Preconditions:  none
+    Postcondition:  All array values other than zero are printed
+  
+*/
+
+#ifndef SET_H
+#define SET_H
+
+class List
+{
+	public:
+		//CONSTRUCTOR
+		List();
+		
+		//DESTRUCTOR
+		~List();
+		
+		//MODIFICATION MEMBER FUNCTIONS
+		void setsize(const int);
+		void insert(const int);
+		void remove(const int);
+		void addtwo();
+		void swap(int&, int&);
+		
+		//CONSTANT MEMBER FUNCTIONS
+		int getsize() const;
+		void display() const;
 	
-   protected: 
-    int *point;
+	private:
+		int size;
+	
+	protected:
+		int* point;	
 };
 
 #endif
