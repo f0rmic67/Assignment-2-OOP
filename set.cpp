@@ -48,6 +48,31 @@ void List::insert(const int ins)
 	}
 }
 
+void Set::setinsert(const int ins)
+{
+	if(point[size - 1] != 0)
+	{
+		addtwo();  //adds two new indexes to point array that are set to zero when the array is full 
+	}
+		
+		
+	if(ins != 0)
+	{
+		for(int count = 0; count < size; count++) //looks for the first occurrence of zero and inserts the user-defined int to that index
+		{
+			if(point[count] == ins)
+			{
+				break;	      //ends the for loop if number is already in list
+			}
+			else if(point[count] == 0)
+			{
+				point[count] = ins;  
+				break;        //ends the for loop after inserting the number
+			}
+		}
+	}
+}
+
 void List::remove(const int rem)
 {
 	if(rem != 0)
