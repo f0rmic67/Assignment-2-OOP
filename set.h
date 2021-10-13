@@ -50,6 +50,13 @@ CONSTANT MEMBER FUNCTIONS for the List class
     Preconditions:  none
     Postcondition:  All array values other than zero are printed
   
+CLASS PROVIDED: Set
+
+MODIFICATION MEMBER FUNCTIONS for Set class
+  void setinsert(const int)
+    Description:    inserts user input value to the dynamic array
+    Preconditions:  value is not already in the array
+    Postcondition:  value is added to the end of the array
 */
 
 #ifndef SET_H
@@ -81,5 +88,13 @@ class List
 	protected:
 		int* point;	
 };
+
+class Set : public List
+{
+	public:
+		//NEW INSERT MEMEBER FUNCTION
+		void setinsert(const int);
+		
+}
 
 #endif
