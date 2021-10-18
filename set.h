@@ -3,6 +3,7 @@
 CLASS PROVIDED: List
 
 CONSTRUCTOR and DESTRUCTOR for the List class:
+
   List()
     Description:    Constructor will initialize List objects
     Preconditions:  None
@@ -14,6 +15,7 @@ CONSTRUCTOR and DESTRUCTOR for the List class:
     Postcondition:  Point array is deleted
     
 MODIFICATION MEMBER FUNCTIONS for List class
+
   void setsize(const int)
     Description:    sets the value of size
     Preconditions:  value is greater than zero
@@ -40,6 +42,7 @@ MODIFICATION MEMBER FUNCTIONS for List class
     Postcondition:  Index values are swapped
     
 CONSTANT MEMBER FUNCTIONS for the List class
+
   int getsize() const
     Description:    returns the value of size
     Preconditions:  none
@@ -50,6 +53,14 @@ CONSTANT MEMBER FUNCTIONS for the List class
     Preconditions:  none
     Postcondition:  All array values other than zero are printed
   
+CLASS PROVIDED: Set
+
+MODIFICATION MEMBER FUNCTIONS for Set class
+
+  void setinsert(const int)
+    Description:    inserts user input value to the dynamic array without allowing duplicate numbers
+    Preconditions:  value is not already in the array
+    Postcondition:  value is added to the end of the array
 */
 
 #ifndef SET_H
@@ -80,6 +91,13 @@ class List
 	
 	protected:
 		int* point;	
+};
+
+class Set : public List
+{
+	public: 
+		//MODIFICATION MEMBER FUNCTIONS
+		void setinsert(const int);
 };
 
 #endif
