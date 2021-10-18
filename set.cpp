@@ -48,6 +48,26 @@ void List::insert(const int ins)
 	}
 }
 
+void Set::setinsert(const int ins)
+{
+	int tempsize = getsize();
+	bool insert1 = true;
+	
+	for(int count = 0; count < tempsize; count++)
+	{
+		if(point[count] == ins)
+		{
+			insert1 = false;
+			break;
+		}
+	}
+	
+	if(insert1 == true)
+	{
+		insert(ins);
+	}
+}
+
 void List::remove(const int rem)
 {
 	if(rem != 0)
@@ -81,7 +101,7 @@ void List::addtwo()
 		temp[count] = point[count];   //copies point array into temporary
 	}
 
-	size += 2;  //sets new size for point array
+	size = size + 2;  //sets new size for point array
 	
 	point = temp;   //inserts values back into newly allocated point array, eliminates any possible junk data
 	
@@ -102,9 +122,7 @@ void List::display() const
 	for(int count = 0; count < size; count++)
 	{
 		if(point[count] != 0)
-		{
 			cout << point[count] << "\n";  //displays each index value in a new line
-		}
 	}
 	
 	cout << endl;
