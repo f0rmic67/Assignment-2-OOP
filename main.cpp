@@ -51,7 +51,7 @@ int main()
 		    	l1.insert(insertnum);    //if working with a list, the number is inserted
 		    	
 		    else if(setlist == 2)
-		    	s1.setinsert(insertnum);    //if working with a set, the number is inserted only if not already in the array
+		    	s1.insert(insertnum);    //if working with a set, the number is inserted only if not already in the array
    			
    			cout << endl;
    		}
