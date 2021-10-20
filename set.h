@@ -21,7 +21,7 @@ MODIFICATION MEMBER FUNCTIONS for List class
     Preconditions:  value is greater than zero
     Postcondition:  size of List dynamic array is set
   
-  void insert(const int)
+  virtual void insert(const int)
     Description:    inserts user input value to the dynamic array
     Preconditions:  value is not zero
     Postcondition:  value is added at the end of the array
@@ -57,7 +57,7 @@ CLASS PROVIDED: Set
 
 MODIFICATION MEMBER FUNCTIONS for Set class
 
-  void setinsert(const int)
+  virtual void insert(const int)
     Description:    inserts user input value to the dynamic array without allowing duplicate numbers
     Preconditions:  value is not already in the array
     Postcondition:  value is added to the end of the array
@@ -77,7 +77,7 @@ class List
 		
 		//MODIFICATION MEMBER FUNCTIONS
 		void setsize(const int);
-		void insert(const int);
+		virtual void insert(const int);
 		void remove(const int);
 		void addtwo();
 		void swap(int&, int&);
@@ -97,7 +97,7 @@ class Set : public List
 {
 	public: 
 		//MODIFICATION MEMBER FUNCTIONS
-		void setinsert(const int);
+		virtual void insert(const int);
 };
 
 #endif
