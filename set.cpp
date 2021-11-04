@@ -103,9 +103,11 @@ void List::addtwo()
 
 	size = size + 2;  //sets new size for point array
 	
+	delete[] point;
+	
 	point = temp;   //inserts values back into newly allocated point array, eliminates any possible junk data
 	
-	delete[] temp;
+	temp = 0;
 }
 
 void List::swap(int& num1, int& num2)
