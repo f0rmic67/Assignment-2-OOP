@@ -50,19 +50,19 @@ void List::insert(const int ins)
 
 void Set::insert(const int ins)
 {
-	int tempsize = getsize();   //uses the List class getsize member function to access size and stores it in tempsize
-	bool insert1 = true;        //starts bool off as true
+	int tempsize = getsize();
+	bool insert1 = true;
 	
 	for(int count = 0; count < tempsize; count++)
 	{
-		if(point[count] == ins)    //if users input is already in the array then the loop breaks and turns bool to false
+		if(point[count] == ins)
 		{
 			insert1 = false;
 			break;
 		}
 	}
 	
-	if(insert1 == true)    //the users input is added to the array only if the bool is still true
+	if(insert1 == true)
 	{
 		List::insert(ins);
 	}
